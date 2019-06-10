@@ -6,3 +6,20 @@
   text-shadow: 1px 1px 5px #fff;
 }
 /* write your parent styles in here for your App.js */
+
+.char_description{
+  margin-top:10px;
+  padding-top:10px;
+  padding-bottom:10px;
+  border:2px solid lightgrey;
+  background-color: lightgrey;
+ 
+
+
+}
+.char_description ul{
+  list-style-type: none;
+}
+.char_description ul .char_name{
+  font-size: 30pt;
+}

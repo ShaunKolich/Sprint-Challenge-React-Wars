@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
+import Chars from './components/StarWarsList';
+
+
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       starwarsChars: []
     };
@@ -22,20 +25,53 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
+        console.log(data);
         this.setState({ starwarsChars: data.results });
+  
       })
       .catch(err => {
         throw new Error(err);
       });
   };
 
+
+
+
   render() {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
+        <ul>
+          {this.state.starwarsChars.map(chars => (
+            <div className = "char_description">
+              <ul>
+                <li className = "char_name">{chars.name}</li>
+                <li>Height :{chars.height}</li>
+                <li>Mass : {chars.mass}</li>
+                <li>Hair Color : {chars.hair_color}</li>
+                <li>Skin Color : {chars.skin_color}</li>
+                <li>Eye Color : {chars.eye_color}</li>
+                <li>Birth Year : {chars.birth_year}</li>
+                <li>Gender : {chars.gender}</li>
+                <li>HomeWorld : {chars.homeworld}</li>
+                <li>Films : {chars.films}</li>
+                <li>Species : {chars.species}</li>
+                <li>Vehicles : {chars.vehicles}</li>
+                <li>Starships : {chars.starships}</li>
+                <li>Created : {chars.created}</li>
+                <li>Edited : {chars.edited}</li>
+                <li>URL : {chars.url}</li>
+              </ul>
+            </div>    
+         
+          
+       ))}
+        </ul>
       </div>
     );
   }
 }
+
+
 
 export default App;
